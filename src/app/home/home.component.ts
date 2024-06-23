@@ -45,7 +45,7 @@ export class HomeComponent {
 		this.homeService.searchDocument(document).subscribe({
         next: (response) => {
           if (response.mensaje === "Encontrado") {
-            this.mensaje = "Usuario Encontrado";
+            this.mensaje = "Usuario encontrado";
             this.homeForm.patchValue({
               names: response.resultado.nombres,
               lastName: response.resultado.apellido_paterno + ' ' + response.resultado.apellido_materno,
@@ -53,7 +53,7 @@ export class HomeComponent {
               birthDate: response.resultado.fecha_nacimiento
             });
           } else {
-            this.mensaje = "Usuario No Encontrado";
+            this.mensaje = "Usuario no encontrado";
           }
         },
         error: (error) => {
