@@ -1,0 +1,53 @@
+<div class="w-screen h-screen dark:bg-gray-700 relative">
+  <div class="relative w-full sm:w-8/12 md:w-8/12 lg:w-6/12 m-auto pt-5">
+    <div class="max-w-2xl p-6 mx-auto bg-white rounded-md shadow-md dark:bg-gray-800">
+      <h2 class="text-center text-lg font-semibold text-gray-700 capitalize dark:text-white">Consulta DNI</h2>
+
+      <form [formGroup]="homeForm" (ngSubmit)="onSubmit()" autocomplete="off">
+        <div class="grid grid-cols-1 gap-2 mt-4 sm:grid-cols-1">
+          <div>
+            <label class="text-gray-700 dark:text-gray-200" for="docRegister">Documento</label>
+            <input id="docRegister" type="text" formControlName="document"
+              class="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-200 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40 dark:focus:border-blue-300 focus:outline-none focus:ring">
+              <p class="text-gray-700 dark:text-gray-200" *ngIf="controlHasError('document', 'required')">Este campo es requerido</p>
+          </div>
+        </div>
+
+        <div class="flex justify-center mt-6 mb-6">
+          <button type="submit" [disabled]="!homeForm.valid"
+            class="px-8 py-2.5 leading-5 text-white transition-colors duration-300 transform bg-gray-700 rounded-md hover:bg-gray-600 focus:outline-none focus:bg-gray-600">Buscar</button>
+        </div>
+
+        <div class="py-2">
+          <p class="text-center text-lg dark:text-gray-200">{{ mensaje }}</p>
+        </div>
+
+        <div class="grid grid-cols-1 gap-2 mt-4 sm:grid-cols-2">
+          <div>
+            <label class="text-gray-700 dark:text-gray-200" for="names">Nombres</label>
+            <input id="names" type="text" formControlName="names" readonly="true"
+              class="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-200 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40 dark:focus:border-blue-300 focus:outline-none focus:ring">
+          </div>
+
+          <div>
+            <label class="text-gray-700 dark:text-gray-200" for="lastname">Apellidos</label>
+            <input id="lastname" type="text" formControlName="lastName" readonly="true"
+              class="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-200 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40 dark:focus:border-blue-300 focus:outline-none focus:ring">
+          </div>
+
+          <div>
+            <label class="text-gray-700 dark:text-gray-200" for="gender">Genero</label>
+            <input id="gender" type="text" formControlName="gender" readonly="true"
+              class="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-200 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40 dark:focus:border-blue-300 focus:outline-none focus:ring">
+          </div>
+
+          <div>
+            <label class="text-gray-700 dark:text-gray-200" for="birthDate">Fecha de nacimiento</label>
+            <input id="birthDate" type="text" formControlName="birthDate" readonly="true"
+              class="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-200 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40 dark:focus:border-blue-300 focus:outline-none focus:ring">
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
