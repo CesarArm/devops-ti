@@ -1,0 +1,6 @@
+{
+  "projects": {
+    "default": "devops-staging",
+    "production": "devops-production"
+  }
+}
