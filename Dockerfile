@@ -10,12 +10,12 @@ RUN npm install
 COPY . .
 
 # Comentario agregado para verificar la construcción de Angular
-RUN npm run build -- --outputPath=./dist/devops-ti
+RUN npm run build
 
 # Stage 2: Serve the application from Nginx
 FROM nginx:alpine
 # Asegúrate de que la ruta desde donde copias coincida con la salida especificada en la construcción de Angular
-COPY --from=build /app/dist/devops-ti /usr/share/nginx/html
+COPY --from=build /app/dist /usr/share/nginx/html
 
 # Expone el puerto 80 para acceder a Nginx
 EXPOSE 80
